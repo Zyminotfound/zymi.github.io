@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zymi | Portfolio</title>
+    <link rel="icon" type="image/jpg" href="Zymi.jpg\">
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0; /* Change this to your desired background color */
+            overflow: hidden; /* Hide scrollbar initially */
         }
 
         .container {
             width: 80%;
             margin: 50px auto;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity for the blurry effect */
+            background-color: rgba(255, 255, 255, 0); /* Initially transparent */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-            backdrop-filter: blur(10px); /* Blurry effect */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0); /* Initially no shadow */
+            backdrop-filter: blur(10px); /* Initially blurred */
+            opacity: 0; /* Initially invisible */
+            transition: opacity 1s ease, background-color 1s ease, box-shadow 1s ease; /* Transition effect */
         }
 
         h1 {
@@ -31,32 +35,76 @@
         p {
             color: #555;
             font-size: 1.2rem;
+            margin-bottom: 10px; /* Add margin bottom to space out paragraphs */
         }
 
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Light and semi-transparent */
+            color: #333; /* Dark text */
             padding: 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
+            backdrop-filter: blur(10px); /* Blurry effect */
+            z-index: 1; /* Ensure footer is on top of other content */
         }
 
         footer p {
             margin: 0;
             font-size: 0.8rem;
         }
+
+        footer .social-links img {
+            width: 30px;
+            margin: 0 10px;
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+
+        footer .social-links img:hover {
+            transform: scale(1.2); /* Increase size on hover */
+        }
+
+        footer .other-links {
+            margin-top: 20px;
+        }
+
+        .visible {
+            opacity: 1; /* Make container visible */
+            background-color: rgba(255, 255, 255, 0.8); /* Light background color */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <h1>Zymi Portfolio</h1>
-        <p>Welcome to my portfolio. Here you can find my latest projects and works.</p>
+        <p>Welcome to my portfolio. Here you can find my latest projects and works. I am a passionate web developer with a focus on creating modern and user-friendly websites.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Zymi. All rights reserved.</p>
+    <footer class="other-links">
+        <p>For more information, contact me at contact@example.com</p>
     </footer>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/your_username" target="_blank"><img src="https://www.kindpng.com/picc/m/1-19853_instagram-logo-black-transparent-instagram-logo-black-png.png" alt="Instagram"></a>
+            <a href="https://discord.gg/your_discord_invite" target="_blank"><img src="https://th.bing.com/th/id/OIP.W9N21AmK2-geX18OttL3ZgAAAA?rs=1&pid=ImgDetMain" alt="Discord"></a>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            var container = document.getElementById('container');
+            setTimeout(function() {
+                container.classList.add('visible');
+                setTimeout(function() {
+                    document.body.style.overflow = 'auto'; /* Show scrollbar after animation */
+                }, 1000); /* Wait for animation to finish */
+            }, 1000); /* Delay intro by 1 second */
+        }
+    </script>
 </body>
 </html>
+
+
