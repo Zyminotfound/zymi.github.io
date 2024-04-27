@@ -12,14 +12,28 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0; /* Change this to your desired background color */
             overflow: hidden; /* Hide scrollbar initially */
+            display: flex;
+            justify-content: space-between;
         }
 
         .container {
-            width: 80%;
+            width: 60%;
             margin: 50px auto;
             text-align: center;
             background-color: rgba(255, 255, 255, 0); /* Initially transparent */
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0); /* Initially no shadow */
+            backdrop-filter: blur(10px); /* Initially blurred */
+            opacity: 0; /* Initially invisible */
+            transition: opacity 1s ease, background-color 1s ease, box-shadow 1s ease; /* Transition effect */
+        }
+
+        .learning, .upcoming {
+            width: 30%;
+            margin: 50px 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0); /* Initially transparent */
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0); /* Initially no shadow */
             backdrop-filter: blur(10px); /* Initially blurred */
@@ -82,22 +96,37 @@
         <p>Welcome to my portfolio. Here you can find my latest projects and works. I am a passionate web developer with a focus on creating modern and user-friendly websites.</p>
     </div>
 
-    <footer class="other-links">
-        <p>For more information, contact me at contact@example.com</p>
-    </footer>
+    <div class="learning">
+        <h2>What I'm Learning</h2>
+        <ul>
+            <li>Web Development</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+
+    <div class="upcoming">
+        <h2>Upcoming Projects</h2>
+        <p>You will be shown here upcoming projects. Stay tuned!</p>
+    </div>
 
     <footer>
         <div class="social-links">
-            <a href="https://instagram.com/your_username" target="_blank"><img src="https://www.kindpng.com/picc/m/1-19853_instagram-logo-black-transparent-instagram-logo-black-png.png" alt="Instagram"></a>
-            <a href="https://discord.gg/your_discord_invite" target="_blank"><img src="https://th.bing.com/th/id/OIP.W9N21AmK2-geX18OttL3ZgAAAA?rs=1&pid=ImgDetMain" alt="Discord"></a>
+            <a href="https://instagram.com/zym.xy" target="_blank"><img src="https://www.kindpng.com/picc/m/1-19853_instagram-logo-black-transparent-instagram-logo-black-png.png" alt="Instagram"></a>
+            <a href="https://discord.gg/sizerop" target="_blank"><img src="https://th.bing.com/th/id/OIP.W9N21AmK2-geX18OttL3ZgAAAA?rs=1&pid=ImgDetMain" alt="Discord"></a>
         </div>
     </footer>
 
     <script>
         window.onload = function() {
             var container = document.getElementById('container');
+            var learning = document.querySelector('.learning');
+            var upcoming = document.querySelector('.upcoming');
             setTimeout(function() {
                 container.classList.add('visible');
+                learning.classList.add('visible');
+                upcoming.classList.add('visible');
                 setTimeout(function() {
                     document.body.style.overflow = 'auto'; /* Show scrollbar after animation */
                 }, 1000); /* Wait for animation to finish */
@@ -106,4 +135,3 @@
     </script>
 </body>
 </html>
-
